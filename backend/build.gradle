@@ -1,0 +1,75 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+mainClassName = 'com.application.administration.web.Application'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    dependencies {
+
+        implementation 'org.reflections:reflections:0.10.2'
+
+        compile group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
+        implementation 'io.github.cdimascio:dotenv-java:2.2.3'
+
+        implementation 'org.springframework.boot:spring-boot-starter-amqp:2.6.2'
+        implementation 'org.apache.commons:commons-dbcp2:2.8.0'
+
+        implementation 'org.hibernate:hibernate-core:5.6.3.Final'
+        implementation 'org.springframework:spring-orm:5.3.15'
+
+        implementation group: 'com.google.guava', name: 'guava', version: '11.0.2'
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '2.5.4'
+
+        implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.2'
+
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+subprojects {
+    group = "app.application.administration.${rootProject.name}"
+
+    sourceSets {
+        main {
+            java { srcDirs = ['main'] }
+            resources { srcDirs = ['main/resources'] }
+        }
+
+        test {
+            java { srcDirs = ['test'] }
+            resources { srcDirs = ['test/resources'] }
+        }
+    }
+
+    bootJar {
+        enabled = false
+    }
+
+    jar {
+        enabled = true
+    }
+}

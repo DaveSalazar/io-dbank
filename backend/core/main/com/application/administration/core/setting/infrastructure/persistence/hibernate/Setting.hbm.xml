@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.application.administration.core.setting.domain.AdministrationSetting" table="institution_settings">
+        <composite-id name="id" class="com.application.administration.core.shared.domain.identifiers.AdministrationSettingId" access="field">
+            <key-property column="id" name="value" length="36" access="field" />
+        </composite-id>
+
+        <component name="institutionId" class="com.application.administration.core.shared.domain.identifiers.InstitutionId" access="field">
+            <property name="value" column="institution_id" type="string" access="field" />
+        </component>
+
+        <component name="name" class="com.application.administration.core.setting.domain.AdministrationSettingName" access="field">
+            <property name="value" column="name" type="string" access="field" />
+        </component>
+
+        <component name="description" class="com.application.administration.core.setting.domain.AdministrationSettingDescription" access="field">
+            <property name="value" column="description" type="text" access="field" />
+        </component>
+
+        <component name="value" class="com.application.administration.core.setting.domain.AdministrationSettingValue" access="field">
+            <property name="value" column="value" type="string" access="field" />
+        </component>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,6 @@
+
+    dependencies {
+        if (rootProject.name != "core") {
+            implementation project(":core")
+        }
+    }
