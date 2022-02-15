@@ -8,12 +8,12 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: 'profile',
-        loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
-      },      
-      {
         path: 'dashboard',
         loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },   
+      {
+        path: 'transactions',
+        loadChildren: () => import('./modules/transaction/transaction.module').then(m => m.TransactionModule)
       },
     ],
   },
