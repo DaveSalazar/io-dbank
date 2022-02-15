@@ -1,4 +1,4 @@
-package com.application.administration.core.setting.application.search_by_criteria;
+package com.application.administration.core.transaction.application.search_by_criteria;
 
 import com.application.administration.core.shared.domain.bus.query.Query;
 
@@ -6,17 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-public final class SettingsByCriteriaQuery implements Query {
+public class TransactionsByCriteriaQuery implements Query {
 
     private final List<HashMap<String, String>> filters;
-    private final Optional<String>              orderBy;
+    private final Optional<String> orderBy;
     private final Optional<String>              orderType;
     private final Optional<Integer>             limit;
     private final Optional<Integer>             offset;
 
-    public SettingsByCriteriaQuery(List<HashMap<String, String>> filters, Optional<String> orderBy,
-                                   Optional<String> orderType, Optional<Integer> limit,
-                                   Optional<Integer> offset) {
+    public TransactionsByCriteriaQuery(List<HashMap<String, String>> filters, Optional<String> orderBy,
+                                       Optional<String> orderType, Optional<Integer> limit, Optional<Integer> offset) {
         this.filters = filters;
         this.orderBy = orderBy;
         this.orderType = orderType;

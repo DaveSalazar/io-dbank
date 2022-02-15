@@ -4,7 +4,6 @@ import com.application.administration.core.shared.domain.Service;
 import com.application.administration.core.shared.domain.bus.event.DomainEvent;
 import com.application.administration.core.shared.domain.bus.event.EventBus;
 import org.springframework.amqp.AmqpException;
-import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 

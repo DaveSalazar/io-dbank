@@ -1,8 +1,8 @@
 package com.application.administration.core.shared.domain.value_object;
 
+import com.application.administration.core.shared.domain.errors.InvalidJsonArrayFormat;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.application.administration.core.shared.domain.errors.InvalidJsonArrayFormat;
 
 import java.io.Serializable;
 import java.util.HashMap;

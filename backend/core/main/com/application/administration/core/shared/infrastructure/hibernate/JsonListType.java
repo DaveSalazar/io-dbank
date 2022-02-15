@@ -16,7 +16,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+import java.util.Properties;
 
 public class JsonListType implements UserType, DynamicParameterizedType {
     private static final int[]        SQL_TYPES     = new int[]{Types.LONGVARCHAR};

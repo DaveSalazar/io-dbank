@@ -1,8 +1,13 @@
 package com.application.administration.core.shared.infrastructure.bus.event.rabbitmq;
 
-import com.application.administration.core.shared.infrastructure.bus.event.DomainEventsInformation;
 import com.application.administration.core.shared.infrastructure.bus.event.DomainEventSubscribersInformation;
-import org.springframework.amqp.core.*;
+import com.application.administration.core.shared.infrastructure.bus.event.DomainEventsInformation;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Declarable;
+import org.springframework.amqp.core.Declarables;
+import org.springframework.amqp.core.QueueBuilder;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

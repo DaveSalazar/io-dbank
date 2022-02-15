@@ -1,11 +1,11 @@
-package com.application.administration.web.controllers.settings;
+package com.application.administration.web.controllers.transactions;
 
-import com.application.administration.core.setting.application.SettingsResponse;
-import com.application.administration.core.setting.application.search_by_criteria.SettingsByCriteriaQuery;
 import com.application.administration.core.shared.domain.DomainError;
 import com.application.administration.core.shared.domain.bus.command.CommandBus;
 import com.application.administration.core.shared.domain.bus.query.QueryBus;
 import com.application.administration.core.shared.domain.bus.query.QueryHandlerExecutionError;
+import com.application.administration.core.transaction.application.TransactionsResponse;
+import com.application.administration.core.transaction.application.search_by_criteria.TransactionsByCriteriaQuery;
 import com.application.administration.web.common.ApiController;
 import com.application.administration.web.common.Constants;
 import com.application.administration.web.common.Utils;
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.Serializable;
-import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -25,17 +23,17 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-public final class SettingsGetController extends ApiController {
+public final class TransactionsGetController extends ApiController {
 
-    public SettingsGetController(QueryBus queryBus, CommandBus commandBus) {
+    private TransactionsGetController(QueryBus queryBus, CommandBus commandBus) {
         super(queryBus, commandBus);
     }
 
-    @GetMapping(Constants.PREFIX + "/settings")
-    public List<Map<String, Serializable>> handle(@RequestParam Map<String, Serializable> params, Principal principal)
+    @GetMapping(Constants.PREFIX + "/transactions")
+    public List<Map<String, Serializable>> handle(@RequestParam Map<String, Serializable> params)
             throws QueryHandlerExecutionError {
-        SettingsResponse response = ask(
-                new SettingsByCriteriaQuery(
+        TransactionsResponse response = ask(
+                new TransactionsByCriteriaQuery(
                         Utils.parseFilters(params),
                         Optional.ofNullable((String)params.get("order_by")),
                         Optional.ofNullable((String)params.get("order")),
@@ -43,11 +41,12 @@ public final class SettingsGetController extends ApiController {
                         Optional.ofNullable(Utils.getParamIntValue(params.get("offset")))
                 )
         );
-        return response.settings().stream().map(this::mapResponse).collect(Collectors.toList());
+        return response.data().stream().map(this::mapResponse).collect(Collectors.toList());
     }
 
+
     @Override
-    public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {
+    public Map<Class<? extends DomainError>, HttpStatus> errorMapping() {
         return null;
     }
 }
