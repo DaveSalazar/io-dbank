@@ -39,10 +39,13 @@ allprojects {
         implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '2.5.4'
 
         implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.2'
 
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+        // Test
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+        testImplementation 'org.mockito:mockito-core:2.+'
+        testImplementation 'com.github.javafaker:javafaker:1.0.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE'
     }
 
     test {
