@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.5.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "org.web3j" version "4.9.0"
     id 'java'
 }
 
@@ -13,6 +14,7 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.springframework.boot'
+    apply plugin: "org.web3j"
 
     sourceCompatibility = 11
     targetCompatibility = 11
@@ -25,7 +27,7 @@ allprojects {
     dependencies {
 
         implementation 'org.reflections:reflections:0.10.2'
-
+        compile ('org.web3j:core:4.8.7')
         compile group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
         implementation 'io.github.cdimascio:dotenv-java:2.2.3'
 

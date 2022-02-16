@@ -22,18 +22,18 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin
-public class CreateAccountPostController extends ApiController {
+public class CheckUserHasAccountPostController extends ApiController {
 
-    protected CreateAccountPostController(QueryBus queryBus, CommandBus commandBus) {
+    protected CheckUserHasAccountPostController(QueryBus queryBus, CommandBus commandBus) {
         super(queryBus, commandBus);
     }
 
-    @PostMapping(Constants.PREFIX + "/accounts")
+    @PostMapping(Constants.PREFIX + "/accounts/check")
     public ResponseEntity create(Principal principal)
             throws CommandHandlerExecutionError {
         String userId = principal.getName();
-        
-        return new ResponseEntity<>(HttpStatus.CREATED);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @Override

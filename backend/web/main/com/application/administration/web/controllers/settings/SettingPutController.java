@@ -38,6 +38,7 @@ public final class SettingPutController extends ApiController {
         ));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
     @Override
     public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {
         return null;
