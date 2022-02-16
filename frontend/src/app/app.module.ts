@@ -8,6 +8,10 @@ import { MainModule } from './layouts/main/main.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { environment } from 'src/environments/environment';
+import { ISettingService } from './services/settings/ISettingService';
+import { SettingsService } from './services/settings/settings.service';
+import { AccountService } from './services/account/account.service';
+import { IAccountService } from './services/account/IAccountService';
 
 @NgModule({
   declarations: [
@@ -26,9 +30,16 @@ import { environment } from 'src/environments/environment';
       }
     })
   ],
-
   providers: [
     MatSnackBar,
+    {
+      provide: ISettingService,
+      useClass: SettingsService
+    },
+    {
+      provide: IAccountService,
+      useClass: AccountService
+    },
   ],
   bootstrap: [AppComponent]
 })
