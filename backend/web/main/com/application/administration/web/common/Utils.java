@@ -78,9 +78,30 @@ public class Utils {
     }
 
     public static List<HashMap<String, String>> parseFilters(Map<String, Serializable> params) {
-        int maxParams = params.size();
 
         List<HashMap<String, String>> filters = new ArrayList<>();
+
+        return formatFilters(params, filters);
+    }
+
+
+    public static List<HashMap<String, String>> parseFiltersWithUserId(Map<String, Serializable> params, String userId) {
+
+        List<HashMap<String, String>> filters = new ArrayList<>();
+
+        HashMap<String, String> userFilter = new HashMap<>();
+
+        userFilter.put("field", "userId");
+        userFilter.put("operator", "=");
+        userFilter.put("value", userId);
+
+        filters.add(userFilter);
+
+        return formatFilters(params, filters);
+    }
+
+    private static List<HashMap<String, String>> formatFilters(Map<String, Serializable> params, List<HashMap<String, String>> filters) {
+        int maxParams = params.size();
 
         for (int key = 0; key < maxParams; key++) {
             if (params.containsKey(String.format("filters[%s][field]", key))) {

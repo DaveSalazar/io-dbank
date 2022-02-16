@@ -2,11 +2,11 @@ package com.application.administration.core.shared.domain.identifiers;
 
 import com.application.administration.core.shared.domain.Identifier;
 
-public class InstitutionId extends Identifier {
-    public InstitutionId(String value) {
+public final class UserId extends Identifier {
+    public UserId(String value) {
         super(value);
     }
 
-    public InstitutionId() {
+    public UserId() {
     }
 }

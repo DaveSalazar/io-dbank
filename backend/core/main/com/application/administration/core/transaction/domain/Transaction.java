@@ -20,6 +20,13 @@ public final class Transaction extends AggregateRoot {
         this.quantity = quantity;
     }
 
+    private Transaction() {
+        this.hash = null;
+        this.from = null;
+        this.to = null;
+        this.quantity = null;
+    }
+
     public static Transaction create(TransactionHash hash, TransactionFrom from, TransactionTo to, TransactionQuantity quantity) {
         var transaction = new Transaction(hash, from, to, quantity);
         transaction.record(new TransactionSavedDomainEvent(UUID.randomUUID().toString(), hash.value(), from.value(), to.value(), quantity.value()));
