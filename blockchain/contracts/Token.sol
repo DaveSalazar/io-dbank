@@ -9,7 +9,7 @@ contract Token is ERC20("IO DBank Currency", "IDBC") {
 
   event MinterChanged(address indexed from, address to);
   
-  constructor() public payable {
+  constructor() payable {
     minter = msg.sender;
   }
 

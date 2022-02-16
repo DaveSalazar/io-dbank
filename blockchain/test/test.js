@@ -1,28 +1,31 @@
+import { tokens, ether, ETHER_ADDRESS, EVM_REVERT, wait } from './helpers'
 
 const Token = artifacts.require('./Token')
+const DecentralizedBank = artifacts.require('./dBank')
 
 require('chai')
   .use(require('chai-as-promised'))
   .should()
 
 contract('dBank', ([deployer, user]) => {
-  let token
+  let token, dbank
   const interestPerSecond = 31668017 //(10% APY) for min. deposit (0.01 ETH)
 
   beforeEach(async () => {
     token = await Token.new()
     dbank = await DecentralizedBank.new(token.address)
+
     await token.passMinterRole(dbank.address, {from: deployer})
   })
 
   describe('testing token contract...', () => {
     describe('success', () => {
       it('checking token name', async () => {
-        expect(await token.name()).to.be.eq('Decentralized Bank Currency')
+        expect(await token.name()).to.be.eq('IO DBank Currency')
       })
 
       it('checking token symbol', async () => {
-        expect(await token.symbol()).to.be.eq('DBC')
+        expect(await token.symbol()).to.be.eq('IDBC')
       })
 
       it('checking token initial total supply', async () => {
