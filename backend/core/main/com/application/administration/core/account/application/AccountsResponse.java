@@ -1,6 +1,5 @@
 package com.application.administration.core.account.application;
 
-import com.application.administration.core.account.domain.Account;
 import com.application.administration.core.shared.domain.bus.query.Response;
 
 import java.util.List;

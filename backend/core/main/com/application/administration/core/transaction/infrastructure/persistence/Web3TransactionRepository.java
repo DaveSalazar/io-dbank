@@ -1,6 +1,5 @@
 package com.application.administration.core.transaction.infrastructure.persistence;
 
-import com.application.administration.core.shared.domain.Service;
 import com.application.administration.core.shared.domain.criteria.Criteria;
 import com.application.administration.core.transaction.domain.Transaction;
 import com.application.administration.core.transaction.domain.TransactionRepository;

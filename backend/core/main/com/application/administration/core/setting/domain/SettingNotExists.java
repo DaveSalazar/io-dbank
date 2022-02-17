@@ -1,7 +1,7 @@
 package com.application.administration.core.setting.domain;
 
-import com.application.administration.core.shared.domain.identifiers.SettingId;
 import com.application.administration.core.shared.domain.DomainError;
+import com.application.administration.core.shared.domain.identifiers.SettingId;
 
 public final class SettingNotExists extends DomainError {
 

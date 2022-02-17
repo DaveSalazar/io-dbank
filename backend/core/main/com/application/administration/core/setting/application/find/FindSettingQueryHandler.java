@@ -1,9 +1,9 @@
 package com.application.administration.core.setting.application.find;
 
-import com.application.administration.core.shared.domain.identifiers.SettingId;
 import com.application.administration.core.setting.application.SettingResponse;
 import com.application.administration.core.shared.domain.Service;
 import com.application.administration.core.shared.domain.bus.query.QueryHandler;
+import com.application.administration.core.shared.domain.identifiers.SettingId;
 
 @Service
 public final class FindSettingQueryHandler implements QueryHandler<FindSettingQuery, SettingResponse> {

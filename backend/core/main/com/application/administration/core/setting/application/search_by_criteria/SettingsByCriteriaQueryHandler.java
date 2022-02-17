@@ -1,10 +1,10 @@
 package com.application.administration.core.setting.application.search_by_criteria;
 
 import com.application.administration.core.setting.application.SettingsResponse;
-import com.application.administration.core.shared.domain.criteria.FilterOrder;
-import com.application.administration.core.shared.domain.criteria.Filters;
 import com.application.administration.core.shared.domain.Service;
 import com.application.administration.core.shared.domain.bus.query.QueryHandler;
+import com.application.administration.core.shared.domain.criteria.FilterOrder;
+import com.application.administration.core.shared.domain.criteria.Filters;
 
 @Service
 public final class SettingsByCriteriaQueryHandler implements QueryHandler<SettingsByCriteriaQuery, SettingsResponse> {

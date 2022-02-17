@@ -1,11 +1,11 @@
 package com.application.administration.core.setting.infrastructure.persistence;
 
-import com.application.administration.core.setting.domain.SettingRepository;
-import com.application.administration.core.shared.domain.identifiers.SettingId;
-import com.application.administration.core.shared.infrastructure.hibernate.HibernateRepository;
 import com.application.administration.core.setting.domain.Setting;
+import com.application.administration.core.setting.domain.SettingRepository;
 import com.application.administration.core.shared.domain.Service;
 import com.application.administration.core.shared.domain.criteria.Criteria;
+import com.application.administration.core.shared.domain.identifiers.SettingId;
+import com.application.administration.core.shared.infrastructure.hibernate.HibernateRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
