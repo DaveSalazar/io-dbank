@@ -4,12 +4,12 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.application.administration.core.setting.domain.AdministrationSetting" table="settings">
-        <composite-id name="id" class="com.application.administration.core.shared.domain.identifiers.AdministrationSettingId" access="field">
+    <class name="com.application.administration.core.setting.domain.Setting" table="settings">
+        <composite-id name="id" class="com.application.administration.core.shared.domain.identifiers.SettingId" access="field">
             <key-property column="id" name="value" length="36" access="field" />
         </composite-id>
 
-        <component name="name" class="com.application.administration.core.setting.domain.AdministrationSettingName" access="field">
+        <component name="name" class="com.application.administration.core.setting.domain.SettingName" access="field">
             <property name="value" column="name" type="string" access="field" />
         </component>
 
@@ -17,7 +17,7 @@
             <property name="value" column="user_id" type="text" access="field" />
         </component>
 
-        <component name="value" class="com.application.administration.core.setting.domain.AdministrationSettingValue" access="field">
+        <component name="value" class="com.application.administration.core.setting.domain.SettingValue" access="field">
             <property name="value" column="value" type="string" access="field" />
         </component>
 

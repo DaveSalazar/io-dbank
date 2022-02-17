@@ -1,6 +1,6 @@
 package com.application.administration.core.setting.application;
 
-import com.application.administration.core.setting.domain.AdministrationSetting;
+import com.application.administration.core.setting.domain.Setting;
 import com.application.administration.core.shared.domain.bus.query.Response;
 
 public final class SettingResponse implements Response {
@@ -17,7 +17,7 @@ public final class SettingResponse implements Response {
         this.value = value;
     }
     
-    public static SettingResponse fromAggregate(AdministrationSetting setting) {
+    public static SettingResponse fromAggregate(Setting setting) {
         return new SettingResponse(
                 setting.id().value(),
                 setting.userId().value(),
