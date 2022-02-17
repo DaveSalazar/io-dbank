@@ -1,5 +1,8 @@
 package com.application.administration.web.controllers.transactions;
 
-class TransactionsGetControllerTest {
+import com.application.administration.web.controllers.ApplicationTestCase;
+
+class TransactionsGetControllerTest extends ApplicationTestCase {
+
 
 }

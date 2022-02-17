@@ -3,6 +3,8 @@ package com.application.administration.core.setting.application;
 import com.application.administration.core.setting.domain.Setting;
 import com.application.administration.core.shared.domain.bus.query.Response;
 
+import java.util.Objects;
+
 public final class SettingResponse implements Response {
 
     private final String id;
@@ -40,5 +42,18 @@ public final class SettingResponse implements Response {
 
     public String value() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SettingResponse that = (SettingResponse) o;
+        return Objects.equals(id, that.id) && Objects.equals(userId, that.userId) && Objects.equals(name, that.name) && Objects.equals(value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, name, value);
     }
 }

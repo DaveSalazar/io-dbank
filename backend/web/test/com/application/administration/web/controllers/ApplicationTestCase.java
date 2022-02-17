@@ -20,6 +20,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public abstract class ApplicationTestCase {
 
+    public static final String PREFIX = "/api/v1";
+
     @Autowired
     protected MockMvc mockMvc;
 

@@ -12,7 +12,6 @@ public final class SettingsByCriteriaQueryHandler implements QueryHandler<Settin
 
     public SettingsByCriteriaQueryHandler(SettingsByCriteriaSearcher searcher) {this.searcher = searcher;}
 
-
     @Override
     public SettingsResponse handle(SettingsByCriteriaQuery query) {
 

@@ -5,6 +5,8 @@ import com.application.administration.core.shared.domain.events.AdministrationSe
 import com.application.administration.core.shared.domain.identifiers.SettingId;
 import com.application.administration.core.shared.domain.identifiers.UserId;
 
+import java.util.Objects;
+
 public final class Setting extends AggregateRoot {
 
     private final SettingId id;
@@ -49,5 +51,18 @@ public final class Setting extends AggregateRoot {
 
     public SettingValue value() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Setting setting = (Setting) o;
+        return Objects.equals(id, setting.id) && Objects.equals(userId, setting.userId) && Objects.equals(name, setting.name) && Objects.equals(value, setting.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, name, value);
     }
 }
