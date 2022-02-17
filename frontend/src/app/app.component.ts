@@ -49,7 +49,7 @@ export class AppComponent {
           .pipe(
             concatMap(res => {              
               if((res as []).length == 0) {
-                return this.accountService.getData()
+                return this.accountService.createAccount()
               } else {
                 return of()
               }

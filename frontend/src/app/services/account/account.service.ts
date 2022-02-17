@@ -31,9 +31,9 @@ export class AccountService extends IAccountService{
     );
   }
 
-  checkAccount(): Observable<void> {
+  createAccount(): Observable<void> {
     return this.http
-    .post<void>(`${this.BASE_URL}/accounts/check`, {})
+    .post<void>(`${this.BASE_URL}/accounts/create`, {})
     .pipe(
       catchError((error) => {
         this.notificationService.open(error.error.message, 'Aceptar');
