@@ -10,6 +10,10 @@ version '1.0-SNAPSHOT'
 apply plugin: 'application'
 mainClassName = 'com.application.administration.web.Application'
 
+solidity {
+    resolvePackages = false
+}
+
 allprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
@@ -27,7 +31,8 @@ allprojects {
     dependencies {
 
         implementation 'org.reflections:reflections:0.10.2'
-        compile ('org.web3j:core:4.8.7')
+        implementation ('org.web3j:core:4.8.9')
+        implementation 'com.squareup.okhttp3:okhttp:4.9.0'
         compile group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
         implementation 'io.github.cdimascio:dotenv-java:2.2.3'
 
@@ -52,6 +57,11 @@ allprojects {
 
     test {
         useJUnitPlatform()
+    }
+
+
+    solidity {
+        resolvePackages = false
     }
 }
 

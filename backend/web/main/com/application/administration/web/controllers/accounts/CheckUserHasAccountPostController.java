@@ -1,5 +1,6 @@
 package com.application.administration.web.controllers.accounts;
 
+import com.application.administration.core.account.application.search_all.SearchAllAccountsQuery;
 import com.application.administration.core.setting.application.save.SaveSettingCommand;
 import com.application.administration.core.shared.domain.DomainError;
 import com.application.administration.core.shared.domain.bus.command.CommandBus;
@@ -32,7 +33,6 @@ public class CheckUserHasAccountPostController extends ApiController {
     public ResponseEntity create(Principal principal)
             throws CommandHandlerExecutionError {
         String userId = principal.getName();
-
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

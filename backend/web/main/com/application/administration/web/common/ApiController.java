@@ -32,6 +32,7 @@ public abstract class ApiController {
     protected <R> R ask(Query query) throws QueryHandlerExecutionError {
         return queryBus.ask(query);
     }
+
     protected Map<String, Serializable> mapResponse(Object response) {
         var mapResponse = new HashMap<String, Serializable>();
         for (Field field: response.getClass().getDeclaredFields()) {
@@ -45,5 +46,6 @@ public abstract class ApiController {
         }
         return mapResponse;
     }
+
      public abstract Map<Class<? extends DomainError>, HttpStatus> errorMapping();
 }

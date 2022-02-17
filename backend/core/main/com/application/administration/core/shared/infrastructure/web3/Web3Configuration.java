@@ -17,7 +17,7 @@ public class Web3Configuration {
     }
 
     @Bean
-    Web3j getInstance() throws ParameterNotExist {
+    Web3j web3j() throws ParameterNotExist {
         return Web3j.build(new HttpService(config.get("NODE_URL")));
     }
 }
