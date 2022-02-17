@@ -1,0 +1,29 @@
+<h1 mat-dialog-title><strong>Transferencia</strong></h1>
+<div mat-dialog-content>
+  <div fxlayout="row" fxLayoutGap="1rem">
+    <div fxFlex="50">
+      <mat-form-field appearance="fill">
+        <mat-label>Destinatario</mat-label>
+        <input matInput [(ngModel)]="transaction.to" />
+      </mat-form-field>
+    </div>
+    <div fxFlex="50">
+      <mat-form-field appearance="fill">
+        <mat-label>Cantidad</mat-label>
+        <input matInput [(ngModel)]="transaction.quantity" />
+        <mat-icon matSuffix>attach_money</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button
+    mat-button
+    color="primary"
+    [mat-dialog-close]="transaction"
+    cdkFocusInitial
+  >
+    Aceptar
+  </button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>

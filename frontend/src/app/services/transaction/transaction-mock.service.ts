@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Transaction } from 'src/app/models/Transaction';
 import { ITransactionService } from './ITransactionService';
 
@@ -7,6 +7,7 @@ import { ITransactionService } from './ITransactionService';
   providedIn: 'root'
 })
 export class TransactionMockService extends ITransactionService {
+  
   
   private data: BehaviorSubject<Transaction[]> = new BehaviorSubject([
     {  
@@ -73,4 +74,16 @@ export class TransactionMockService extends ITransactionService {
     return this.data.asObservable();
   }
 
+  saveData(data: Transaction): Observable<void> {
+    let currentData = this.data.getValue();
+    const element = currentData.find(el => el.hash === data.hash)
+    if(element) {
+      const idx = currentData.indexOf(element);
+      currentData[idx] = data
+    } else {
+      currentData.push(data);
+    }
+    this.data.next(currentData);
+    return of()
+  }
 }

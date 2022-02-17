@@ -41,12 +41,15 @@ export class AppComponent {
       .then(() => {
         if (this.oauthService.getIdentityClaims()) {
           console.log(this.oauthService.getIdentityClaims())
-          let filters: Filter[] = [{field: 'name', value: 'isAccountCreated', operator: '='}]
+          const idClaims = this.oauthService.getIdentityClaims();
+          let filters: Filter[] = [
+            {field: 'userId', value: (idClaims as any).sub , operator: '='}
+          ]
           this.settingService.getDataFiltered(filters)
           .pipe(
-            concatMap(res => {
+            concatMap(res => {              
               if((res as []).length == 0) {
-                return this.accountService.checkAccount()
+                return this.accountService.getData()
               } else {
                 return of()
               }

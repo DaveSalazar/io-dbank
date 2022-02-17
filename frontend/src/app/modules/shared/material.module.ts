@@ -21,8 +21,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const materialModules = [
+  MatDialogModule,
   MatTooltipModule,
   MatToolbarModule,
   MatIconModule,

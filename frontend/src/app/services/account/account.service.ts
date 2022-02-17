@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Account } from 'src/app/models/Account';
 import { environment } from 'src/environments/environment';
 import { IAccountService } from './IAccountService';
 
@@ -10,6 +11,7 @@ import { IAccountService } from './IAccountService';
   providedIn: 'root'
 })
 export class AccountService extends IAccountService{
+
   
   protected BASE_URL = environment.BASE_URL+ '/api/v1';
 
@@ -20,6 +22,14 @@ export class AccountService extends IAccountService{
     super()
   }
 
+  getData(): Observable<Account[]> {
+    return this.http.get<Account[]>(`${this.BASE_URL}/accounts`).pipe(
+      catchError((error) => {
+        this.notificationService.open(error.error.message, 'Aceptar');
+        throw error;
+      })
+    );
+  }
 
   checkAccount(): Observable<void> {
     return this.http
